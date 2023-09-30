@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
 
-// Agrega estas líneas para configurar body-parser
+
 var bodyParser = require('body-parser');
 var app = express();
 

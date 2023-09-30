@@ -6,7 +6,8 @@ const logger = require('morgan');
 const session = require('express-session'); 
 
 require('dotenv').config();
-var pool = require('./modelos/bd');
+var pool = require('./modelo/bd');
+
 
 const indexRouter = require('./routes/index');
 const bathRouter = require('./routes/bath');
@@ -28,34 +29,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//pool.query("select * from empleados").then(function(resultados){
-// console.log(resultados)
-// });
+//select
 
-var obj = { 
-  nombre: 'Juan',
-  apellido: 'Lopez',
-  trabajo: 'Docente',
-  edad: 38,
-  salario: 150000,
-  mail: 'juanlopez@gmail.com'
-}
 
-pool.query('insert into empleados set ?', [obj]).then(function (resultados) {
-  console.log(resultados)
-});
 
-var id = 28;
-var obj = { 
-  nombre: 'Juan',
-  apellido: 'Lopez',
-}
+ 
 
-pool.query('update empleados set ? where id_emp=?',[obj, id]).then(function
-  (resultados){
-    console.log(resultados);
-
-  });
 
 
 
